@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IpAddress } from 'src/app/state/ip-address/ip-address.state';
 
 @Component({
   selector: 'header',
@@ -11,5 +12,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  @Input() ipAddress: IpAddress;
 }

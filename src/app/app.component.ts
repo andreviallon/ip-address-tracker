@@ -3,10 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <header></header>
-  `,
-  styleUrls: ['./app.component.scss']
+    <header-wrapper></header-wrapper>
+  `
 })
 export class AppComponent {
-  title = 'ip-address-tracker';
 }
