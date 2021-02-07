@@ -5,7 +5,6 @@ import { ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { environment } from 'src/environments/environment';
 import axios from 'axios';
 
-
 interface Location {
   country: string;
   region: string;
@@ -61,8 +60,6 @@ export const IP_ADDRESS_STATE = new StateToken<IpAddressStateModel>('ipAddressSt
 @Injectable()
 export class IpAddressState {
 
-  constructor() { }
-
   @Selector([IP_ADDRESS_STATE])
   static ipAddress(state: IpAddressStateModel): IpAddress {
     return state.ipAddress;
@@ -74,6 +71,7 @@ export class IpAddressState {
   }
 
   @Action(FetchIpAddress)
+  @ImmutableContext()
   async fetchIpAddress({ setState, dispatch }: StateContext<IpAddressStateModel>, { searchQuery }: FetchIpAddress) {
     try {
       setState((state: IpAddressStateModel) => {
@@ -102,7 +100,6 @@ export class IpAddressState {
       state.loading = false;
       return state;
     });
-
   }
 
 }
