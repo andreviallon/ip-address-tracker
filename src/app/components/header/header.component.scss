@@ -3,6 +3,8 @@
   height: 25rem;
   background-image: url("../../../assets/images/pattern-bg.png");
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -12,4 +14,10 @@ h1 {
   color: white;
   margin: 0;
   padding-top: 2rem;
+}
+
+search-input {
+  margin: 3rem auto;
+  text-align: center;
+  width: 100%;
 }
