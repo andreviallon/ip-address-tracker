@@ -2,6 +2,11 @@
 
 $inputHeight: 4rem;
 
+form {
+  display: flex;
+  justify-content: center;
+}
+
 input {
   width: 70%;
   height: $inputHeight;
@@ -31,7 +36,7 @@ button {
   padding: 1rem 2rem;
   margin: 0;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   border-radius: 0 14px 14px 0;
   -webkit-border-radius: 0 14px 14px 0;
   -moz-border-radius: 0 14px 14px 0;
