@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { SearchInputComponent } from "./components/search-input/search-input.component";
+import { AddressDetailsComponent } from "./components/address-details/address-details.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
@@ -18,7 +19,8 @@ import { MapComponent } from "./components/map/map.component";
     AppComponent,
     HeaderComponent,
     SearchInputComponent,
-    MapComponent
+    MapComponent,
+    AddressDetailsComponent
   ],
   imports: [
     BrowserModule,
