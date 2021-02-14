@@ -6,22 +6,22 @@ import { IpAddress } from "src/app/state/ip-address/ip-address.state";
   template: `
     <div class="card">
       <div class="flex-container">
-        <div>
+        <div class="details-container">
           <h4>IP Address</h4>
           <p>192.928.382.901</p>
         </div>
         <div class="vertical-line"></div>
-        <div>
+        <div class="details-container">
           <h4>IP Address</h4>
           <p>192.928.382.901</p>
         </div>
         <div class="vertical-line"></div>
-        <div>
+        <div class="details-container">
           <h4>IP Address</h4>
           <p>192.928.382.901</p>
         </div>
         <div class="vertical-line"></div>
-        <div>
+        <div class="details-container">
           <h4>IP Address</h4>
           <p>192.928.382.901</p>
         </div>
