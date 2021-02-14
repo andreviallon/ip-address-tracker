@@ -4,8 +4,28 @@ import { IpAddress } from "src/app/state/ip-address/ip-address.state";
 @Component({
   selector: "address-details",
   template: `
-    <div>
-      <h1>it works</h1>
+    <div class="card">
+      <div class="flex-container">
+        <div>
+          <h4>IP Address</h4>
+          <p>192.928.382.901</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+          <h4>IP Address</h4>
+          <p>192.928.382.901</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+          <h4>IP Address</h4>
+          <p>192.928.382.901</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+          <h4>IP Address</h4>
+          <p>192.928.382.901</p>
+        </div>
+      </div>
     </div>
   `,
   styleUrls: ["./address-details.component.scss"]

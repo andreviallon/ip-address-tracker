@@ -1,0 +1,30 @@
+@import "../../../styles.scss";
+
+.card {
+  width: 80%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.vertical-line {
+  border-left: 1px solid $lightGray;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  color: $gray;
+  font-size: 0.7rem;
+}
+
+p {
+  font-size: 1.3rem;
+}
