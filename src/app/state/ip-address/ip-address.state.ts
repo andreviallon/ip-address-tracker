@@ -1,23 +1,26 @@
-import { FetchIpAddress, FetchIpAddressSuccess } from './ip-address.state.actions';
-import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
-import { Injectable } from '@angular/core';
-import { ImmutableContext } from '@ngxs-labs/immer-adapter';
-import { environment } from 'src/environments/environment';
-import axios from 'axios';
+import {
+  FetchIpAddress,
+  FetchIpAddressSuccess
+} from "./ip-address.state.actions";
+import { Action, Selector, State, StateContext, StateToken } from "@ngxs/store";
+import { Injectable } from "@angular/core";
+import { ImmutableContext } from "@ngxs-labs/immer-adapter";
+import { environment } from "src/environments/environment";
+import axios from "axios";
 
 interface Location {
   country: string;
   region: string;
   city: string;
-  lat: number
-  lng: number
+  lat: number;
+  lng: number;
   postalCode: string;
   timezone: string;
   geonameId: number;
 }
 
 interface As {
-  asn: number,
+  asn: number;
   name: string;
   route: string;
   domain: string;
@@ -48,10 +51,12 @@ export interface IpAddressStateModel {
 export const ipAddressStateModelDefaults: IpAddressStateModel = {
   ipAddress: {},
   loading: false,
-  errorMessage: ''
+  errorMessage: ""
 };
 
-export const IP_ADDRESS_STATE = new StateToken<IpAddressStateModel>('ipAddressState');
+export const IP_ADDRESS_STATE = new StateToken<IpAddressStateModel>(
+  "ipAddressState"
+);
 
 @State({
   name: IP_ADDRESS_STATE,
@@ -59,9 +64,9 @@ export const IP_ADDRESS_STATE = new StateToken<IpAddressStateModel>('ipAddressSt
 })
 @Injectable()
 export class IpAddressState {
-
   @Selector([IP_ADDRESS_STATE])
   static ipAddress(state: IpAddressStateModel): IpAddress {
+    console.log("state.ipAddress", state.ipAddress);
     return state.ipAddress;
   }
 
@@ -72,15 +77,20 @@ export class IpAddressState {
 
   @Action(FetchIpAddress)
   @ImmutableContext()
-  async fetchIpAddress({ setState, dispatch }: StateContext<IpAddressStateModel>, { searchQuery }: FetchIpAddress) {
+  async fetchIpAddress(
+    { setState, dispatch }: StateContext<IpAddressStateModel>,
+    { searchQuery }: FetchIpAddress
+  ) {
     try {
       setState((state: IpAddressStateModel) => {
         state.loading = true;
-        state.errorMessage = '';
+        state.errorMessage = "";
         return state;
       });
 
-      const { data } = await axios.get(`https://geo.ipify.org/api/v1?apiKey=${environment.IP_ADDRESS_API_KEY}&ipAddress=${searchQuery}`)
+      const { data } = await axios.get(
+        `https://geo.ipify.org/api/v1?apiKey=${environment.IP_ADDRESS_API_KEY}&ipAddress=${searchQuery}`
+      );
 
       dispatch(new FetchIpAddressSuccess(data));
     } catch (err) {
@@ -94,12 +104,14 @@ export class IpAddressState {
 
   @Action(FetchIpAddressSuccess)
   @ImmutableContext()
-  loadRackCablesSuccess({ setState }: StateContext<IpAddressStateModel>, { ipAddress }: FetchIpAddressSuccess) {
+  loadRackCablesSuccess(
+    { setState }: StateContext<IpAddressStateModel>,
+    { ipAddress }: FetchIpAddressSuccess
+  ) {
     setState((state: IpAddressStateModel) => {
       state.ipAddress = ipAddress;
       state.loading = false;
       return state;
     });
   }
-
 }
