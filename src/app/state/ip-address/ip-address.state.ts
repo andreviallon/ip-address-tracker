@@ -65,9 +65,12 @@ export const IP_ADDRESS_STATE = new StateToken<IpAddressStateModel>(
 @Injectable()
 export class IpAddressState {
   @Selector([IP_ADDRESS_STATE])
-  static ipAddress(state: IpAddressStateModel): IpAddress {
-    console.log("state.ipAddress", state.ipAddress);
-    return state.ipAddress;
+  static ipAddress(state: IpAddressStateModel): IpAddress | null {
+    if (Object.keys(state.ipAddress).length) {
+      return state.ipAddress;
+    } else {
+      return null;
+    }
   }
 
   @Selector([IP_ADDRESS_STATE])

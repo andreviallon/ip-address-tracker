@@ -10,7 +10,7 @@ import { FetchIpAddress } from "./state/ip-address/ip-address.state.actions";
   template: ` <header [ipAddress]="ipAddress$ | async"></header> `
 })
 export class AppComponent {
-  @Select(IpAddressState.ipAddress) ipAddress$: Observable<IpAddress>;
+  @Select(IpAddressState.ipAddress) ipAddress$: Observable<IpAddress | null>;
   @Select(IpAddressState.loading) loading$: Observable<boolean>;
 
   @Dispatch() fetchIpAddress = () => new FetchIpAddress("");
