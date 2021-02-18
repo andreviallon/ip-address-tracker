@@ -75,6 +75,11 @@ export class IpAddressState {
     return state.loading;
   }
 
+  @Selector([IP_ADDRESS_STATE])
+  static errorMessage(state: IpAddressStateModel): string {
+    return state.errorMessage;
+  }
+
   @Action(FetchIpAddress)
   @ImmutableContext()
   async fetchIpAddress({ setState, dispatch }: StateContext<IpAddressStateModel>, { searchQuery }: FetchIpAddress) {
@@ -91,9 +96,10 @@ export class IpAddressState {
 
       dispatch(new FetchIpAddressSuccess(data));
     } catch (err) {
+      console.log('err', err);
       setState((state: IpAddressStateModel) => {
         state.loading = false;
-        state.errorMessage = err;
+        state.errorMessage = 'No IP address found.';
         return state;
       });
     }

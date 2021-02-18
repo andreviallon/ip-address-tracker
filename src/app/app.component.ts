@@ -9,7 +9,7 @@ import { FetchIpAddress } from "./state/ip-address/ip-address.state.actions";
   selector: "app-root",
   template: `
     <div class="app-container">
-      <header [ipAddress]="ipAddress$ | async" [loading]="loading$ | async" (search)="fetchIpAddress($event)"></header>
+      <header [ipAddress]="ipAddress$ | async" [loading]="loading$ | async" [errorMessage]="errorMessage$ | async" (search)="fetchIpAddress($event)"></header>
       <map [ipAddress]="ipAddress$ | async"></map>
     </div>
   `,
@@ -18,6 +18,7 @@ import { FetchIpAddress } from "./state/ip-address/ip-address.state.actions";
 export class AppComponent {
   @Select(IpAddressState.ipAddress) ipAddress$: Observable<IpAddress | null>;
   @Select(IpAddressState.loading) loading$: Observable<boolean | null>;
+  @Select(IpAddressState.errorMessage) errorMessage$: Observable<string>;
 
   @Dispatch() fetchIpAddress = (searchQuery: string) => new FetchIpAddress(searchQuery);
 
