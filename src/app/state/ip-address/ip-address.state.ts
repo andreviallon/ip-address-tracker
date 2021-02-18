@@ -48,7 +48,7 @@ export interface IpAddressStateModel {
 export const ipAddressStateModelDefaults: IpAddressStateModel = {
   ipAddress: {},
   loading: false,
-  errorMessage: ""
+  errorMessage: ''
 };
 
 export const IP_ADDRESS_STATE = new StateToken<IpAddressStateModel>(
@@ -96,7 +96,6 @@ export class IpAddressState {
 
       dispatch(new FetchIpAddressSuccess(data));
     } catch (err) {
-      console.log('err', err);
       setState((state: IpAddressStateModel) => {
         state.loading = false;
         state.errorMessage = 'No IP address found.';

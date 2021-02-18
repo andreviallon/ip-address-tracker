@@ -18,11 +18,11 @@ import { FetchIpAddress } from "./state/ip-address/ip-address.state.actions";
 export class AppComponent {
   @Select(IpAddressState.ipAddress) ipAddress$: Observable<IpAddress | null>;
   @Select(IpAddressState.loading) loading$: Observable<boolean | null>;
-  @Select(IpAddressState.errorMessage) errorMessage$: Observable<string>;
+  @Select(IpAddressState.errorMessage) errorMessage$: Observable<string | null>;
 
-  @Dispatch() fetchIpAddress = (searchQuery: string) => new FetchIpAddress(searchQuery);
+  @Dispatch() fetchIpAddress = (searchQuery?: string) => new FetchIpAddress(searchQuery ?? '');
 
   public ngOnInit(): void {
-    this.fetchIpAddress('');
+    this.fetchIpAddress();
   }
 }
