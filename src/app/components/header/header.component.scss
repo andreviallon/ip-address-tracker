@@ -20,4 +20,8 @@ search-input {
   margin: 3rem auto;
   text-align: center;
   width: 100%;
+
+  @media (max-width: 750px) {
+    margin: 2rem auto 1.2rem;
+  }
 }
