@@ -1,12 +1,12 @@
 @import "../../../styles.scss";
 
 .card {
-  width: 80%;
+  width: 85%;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   margin: 0 auto;
-  padding: 3rem;
+  padding: 2rem;
 
   @media (max-width: 750px) {
     width: 70%;

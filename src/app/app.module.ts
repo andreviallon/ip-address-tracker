@@ -14,6 +14,8 @@ import { NgxsModule } from "@ngxs/store";
 import { NgxsDispatchPluginModule } from "@ngxs-labs/dispatch-decorator";
 import { MapComponent } from "./components/map/map.component";
 
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { MapComponent } from "./components/map/map.component";
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxsModule.forRoot([IpAddressState]),
-    NgxsDispatchPluginModule.forRoot()
+    NgxsDispatchPluginModule.forRoot(),
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]

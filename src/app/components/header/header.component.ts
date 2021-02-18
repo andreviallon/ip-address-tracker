@@ -14,7 +14,7 @@ import { IpAddress } from "src/app/state/ip-address/ip-address.state";
 })
 export class HeaderComponent {
   @Input() ipAddress: IpAddress | null;
-  @Input() loading: boolean;
+  @Input() loading: boolean | null;
 
   @Output() search = new EventEmitter<string>();
 }

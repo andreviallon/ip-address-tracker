@@ -35,5 +35,5 @@ import { IpAddress } from "src/app/state/ip-address/ip-address.state";
 })
 export class AddressDetailsComponent {
   @Input() ipAddress: IpAddress | null;
-  @Input() loading: boolean;
+  @Input() loading: boolean | null;
 }

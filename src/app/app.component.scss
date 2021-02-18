@@ -1,9 +1,13 @@
-:host {
+.app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
-//map {
-  //flex: 1;
-//}
+header {
+  z-index: 2;
+}
+
+map {
+  z-index: 1;
+}
