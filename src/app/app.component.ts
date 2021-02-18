@@ -7,15 +7,15 @@ import { FetchIpAddress } from "./state/ip-address/ip-address.state.actions";
 
 @Component({
   selector: "app-root",
-  template: ` <header [ipAddress]="ipAddress$ | async"></header> `
+  template: `<header [ipAddress]="ipAddress$ | async" [loading]="loading$ | async" (search)="fetchIpAddress($event)"></header>`
 })
 export class AppComponent {
   @Select(IpAddressState.ipAddress) ipAddress$: Observable<IpAddress | null>;
   @Select(IpAddressState.loading) loading$: Observable<boolean>;
 
-  @Dispatch() fetchIpAddress = () => new FetchIpAddress("");
+  @Dispatch() fetchIpAddress = (searchQuery: string) => new FetchIpAddress(searchQuery);
 
   public ngOnInit(): void {
-    this.fetchIpAddress();
+    this.fetchIpAddress('');
   }
 }

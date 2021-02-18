@@ -5,7 +5,7 @@ import { IpAddress } from "src/app/state/ip-address/ip-address.state";
   selector: "address-details",
   template: `
     <div class="card">
-      <div class="flex-container" *ngIf="ipAddress">
+      <div class="flex-container" *ngIf="ipAddress && !loading">
         <div class="details-container">
           <h4>IP Address</h4>
           <p>{{ ipAddress.ip }}</p>
@@ -26,7 +26,7 @@ import { IpAddress } from "src/app/state/ip-address/ip-address.state";
           <p>{{ ipAddress.isp }}</p>
         </div>
       </div>
-      <div *ngIf="!ipAddress">
+      <div *ngIf="loading">
         <p>Loading...</p>
       </div>
     </div>
@@ -35,4 +35,5 @@ import { IpAddress } from "src/app/state/ip-address/ip-address.state";
 })
 export class AddressDetailsComponent {
   @Input() ipAddress: IpAddress | null;
+  @Input() loading: boolean;
 }

@@ -1,7 +1,4 @@
-import {
-  FetchIpAddress,
-  FetchIpAddressSuccess
-} from "./ip-address.state.actions";
+import { FetchIpAddress, FetchIpAddressSuccess } from "./ip-address.state.actions";
 import { Action, Selector, State, StateContext, StateToken } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 import { ImmutableContext } from "@ngxs-labs/immer-adapter";
@@ -80,10 +77,7 @@ export class IpAddressState {
 
   @Action(FetchIpAddress)
   @ImmutableContext()
-  async fetchIpAddress(
-    { setState, dispatch }: StateContext<IpAddressStateModel>,
-    { searchQuery }: FetchIpAddress
-  ) {
+  async fetchIpAddress({ setState, dispatch }: StateContext<IpAddressStateModel>, { searchQuery }: FetchIpAddress) {
     try {
       setState((state: IpAddressStateModel) => {
         state.loading = true;
@@ -107,10 +101,7 @@ export class IpAddressState {
 
   @Action(FetchIpAddressSuccess)
   @ImmutableContext()
-  loadRackCablesSuccess(
-    { setState }: StateContext<IpAddressStateModel>,
-    { ipAddress }: FetchIpAddressSuccess
-  ) {
+  loadRackCablesSuccess({ setState }: StateContext<IpAddressStateModel>, { ipAddress }: FetchIpAddressSuccess) {
     setState((state: IpAddressStateModel) => {
       state.ipAddress = ipAddress;
       state.loading = false;
