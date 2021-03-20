@@ -106,7 +106,7 @@ export class IpAddressState {
 
   @Action(FetchIpAddressSuccess)
   @ImmutableContext()
-  loadRackCablesSuccess({ setState }: StateContext<IpAddressStateModel>, { ipAddress }: FetchIpAddressSuccess) {
+  fetchIpAddressSuccess({ setState }: StateContext<IpAddressStateModel>, { ipAddress }: FetchIpAddressSuccess) {
     setState((state: IpAddressStateModel) => {
       state.ipAddress = ipAddress;
       state.loading = false;
